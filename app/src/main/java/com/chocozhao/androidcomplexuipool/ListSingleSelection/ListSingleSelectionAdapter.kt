@@ -47,7 +47,7 @@ class ListSingleSelectionAdapter : RecyclerView.Adapter<ListSingleSelectionAdapt
         }
 
         if (mTag == position) {
-            holder.itemView.mItemTag.setBackgroundColor(Color.BLACK)
+            holder.itemView.mItemTag.setBackgroundColor(Color.YELLOW)
         } else {
             holder.itemView.mItemTag.setBackgroundColor(Color.WHITE)
         }

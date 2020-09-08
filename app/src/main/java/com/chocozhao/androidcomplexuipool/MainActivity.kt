@@ -8,9 +8,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.chad.library.adapter.base.listener.OnItemClickListener
 import com.chocozhao.androidcomplexuipool.ExpandText.ExpandTextActivity
 import com.chocozhao.androidcomplexuipool.ListSingleSelection.ListSingleSelectionActivity
+import com.chocozhao.androidcomplexuipool.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.view_tool_bar.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
     private val mainItemData: ArrayList<MainItemBean>
         get() = arrayListOf(
                 MainItemBean(getString(R.string.item_expand_text)),
@@ -20,6 +22,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setToolBar(toolbar,"AndroidComplexUIPool")
+
         initAdapter()
     }
 

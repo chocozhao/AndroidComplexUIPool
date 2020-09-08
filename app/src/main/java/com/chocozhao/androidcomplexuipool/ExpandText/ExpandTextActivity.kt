@@ -9,11 +9,11 @@ import androidx.appcompat.widget.Toolbar
 import com.blankj.utilcode.util.BarUtils
 import com.blankj.utilcode.util.StringUtils
 import com.chocozhao.androidcomplexuipool.R
+import com.chocozhao.androidcomplexuipool.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_expand_text.*
 import kotlinx.android.synthetic.main.view_tool_bar.*
 
-class ExpandTextActivity : AppCompatActivity() {
-
+class ExpandTextActivity : BaseActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,7 +25,7 @@ class ExpandTextActivity : AppCompatActivity() {
 
     private fun initData() {
 
-        setToolBar(toolbar, "ExpandTextView")
+        setToolBar(toolbar, "ListSingleSelection")
         mExpandText.setText(
                 "androidComplexUIPool is warehouse!!!" +
                         "androidComplexUIPool is warehouse!!!" +
@@ -42,28 +42,5 @@ class ExpandTextActivity : AppCompatActivity() {
                         "androidComplexUIPool is warehouse!!!")
     }
 
-    /**
-     * 如果使用的是项目中的共用Toolbar
-     *
-     * @param toolbar
-     * @param title
-     */
-    fun setToolBar(toolbar: Toolbar?, title: String?) {
-        //假如使用的是标准的toolbar
-        if (toolbar != null && toolbar.id === R.id.toolbar) {
-            if (!StringUtils.isEmpty(title)) {
-                try {
-                    val tvTitle = toolbar.findViewById(R.id.txt_toolbar_title) as TextView
-                    tvTitle.visibility = View.VISIBLE
-                    tvTitle.text = title
-                } catch (e: Exception) {
-                    e.printStackTrace()
-                }
-            }
-        }
-        setSupportActionBar(toolbar)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        supportActionBar!!.setDisplayShowHomeEnabled(true)
-        toolbar?.setNavigationOnClickListener { onBackPressed() }
-    }
+
 }

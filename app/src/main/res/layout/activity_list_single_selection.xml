@@ -6,14 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".ListSingleSelection.ListSingleSelectionActivity">
 
+    <include
+        android:id="@+id/include"
+        layout="@layout/view_tool_bar" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/mRvListSingleSelection"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="1dp"
-        android:layout_marginTop="@dimen/dp_20"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/include" />
 </androidx.constraintlayout.widget.ConstraintLayout>
