@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">AndroidComplexUIPool</string>
+
+
+    <!-- 空字符 -->
+    <string name="null_String">&#160;</string>
+<!--    list展示内容-->
+    <string name="item_expand_text">ExpandTextView</string>
+    <string name="item_list_single_selection">ListSingleSelection</string>
+</resources>
