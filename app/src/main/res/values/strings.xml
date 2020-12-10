@@ -7,4 +7,5 @@
 <!--    list展示内容-->
     <string name="item_expand_text">ExpandTextView</string>
     <string name="item_list_single_selection">ListSingleSelection</string>
+    <string name="item_list_zoom_header">ZoomHeader</string>
 </resources>

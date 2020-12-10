@@ -2,7 +2,7 @@ package com.chocozhao.androidcomplexuipool
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.view.View
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.chad.library.adapter.base.listener.OnItemClickListener
@@ -17,31 +17,42 @@ class MainActivity : BaseActivity() {
         get() = arrayListOf(
                 MainItemBean(getString(R.string.item_expand_text)),
                 MainItemBean(getString(R.string.item_list_single_selection)),
+                MainItemBean(getString(R.string.item_list_zoom_header)),
         )
+
+    private val mainAdapter: MainAdapter
+        get() {
+            return MainAdapter(mainItemData)
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setToolBar(toolbar,"AndroidComplexUIPool")
+        setToolBar(toolbar, "AndroidComplexUIPool")
 
         initAdapter()
     }
 
+
     private fun initAdapter() {
+
         mRecyclerView.layoutManager = LinearLayoutManager(this)
                 .also { linearLayoutManager -> linearLayoutManager.orientation = LinearLayoutManager.VERTICAL }
-        mRecyclerView.addItemDecoration(DividerItemDecoration(App.getContext(),DividerItemDecoration.HORIZONTAL))
-        val mainAdapter = MainAdapter(mainItemData)
+        mRecyclerView.addItemDecoration(DividerItemDecoration(App.getContext(), DividerItemDecoration.HORIZONTAL))
         mRecyclerView.adapter = mainAdapter
-        mainAdapter.setOnItemClickListener(OnItemClickListener { adapter, view, position ->
+        val view: View = layoutInflater.inflate(R.layout.activity_main, mRecyclerView, false)
+        mainAdapter.addFooterView(view)
+        mainAdapter.setOnItemClickListener(OnItemClickListener { _, _, position ->
             when (mainAdapter.getItem(position).itemName) {
-                "ExpandTextView" -> {
+                getString(R.string.item_expand_text) -> {
                     startActivity(Intent(this, ExpandTextActivity::class.java))
                 }
-                "ListSingleSelection" -> {
-                    startActivity(Intent(this,ListSingleSelectionActivity::class.java))
+                getString(R.string.item_list_single_selection) -> {
+                    startActivity(Intent(this, ListSingleSelectionActivity::class.java))
                 }
-
+                getString(R.string.item_list_zoom_header) -> {
+                    startActivity(Intent(this, ListSingleSelectionActivity::class.java))
+                }
             }
         })
     }

@@ -1,6 +1,5 @@
 package com.chocozhao.androidcomplexuipool
 
-import com.blankj.utilcode.util.LogUtils
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 
